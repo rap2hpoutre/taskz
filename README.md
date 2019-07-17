@@ -113,3 +113,13 @@ const myTasks = taskz([
   }
 ]);
 ```
+
+## Related
+
+- [ora](https://github.com/sindresorhus/ora) - Elegant terminal spinner
+- [cli-spinners](https://github.com/sindresorhus/cli-spinners) - Spinners for use in the terminal
+- [listr](https://github.com/SamVerschueren/listr) - Terminal task list
+
+## License
+
+MIT © [rap2h](https://github.com/rap2hpoutre)
