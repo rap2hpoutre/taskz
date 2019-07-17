@@ -2,6 +2,8 @@
 
 Simple sequential terminal tasks runner.
 
+![render1563366532786](https://user-images.githubusercontent.com/1575946/61376196-03e43800-a8a1-11e9-9ac2-caff8e3c412a.gif)
+
 ## Install
 
 ```
