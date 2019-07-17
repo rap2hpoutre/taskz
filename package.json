@@ -1,17 +1,17 @@
 {
   "name": "taskz",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Terminal task list",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "rap2hpoutre/taskz",
-	"author": {
-		"name": "Raphaël Huchet",
-		"email": "raphaelht@gmail.com",
-		"url": "https://raph.site"
-	},
+  "author": {
+    "name": "Raphaël Huchet",
+    "email": "raphaelht@gmail.com",
+    "url": "https://raph.site"
+  },
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
