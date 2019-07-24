@@ -65,7 +65,7 @@ const myTasks = taskz([
 
 ### Concurrent tasks (parallelism)
 
-Add `{ parallel: true }` as a second parameter in `taskz`. 
+Add `{ parallel: true }` as a second parameter in `taskz`. 
 
 ```js
 const myTasks = taskz([
@@ -125,7 +125,7 @@ const myTasks = taskz([
 
 ## Related
 
-- [ora](https://github.com/sindresorhus/ora) - Elegant terminal spinner
+- [spinnies](https://github.com/jcarpanelli/spinnies) - Elegant terminal multiple spinners manager
 - [cli-spinners](https://github.com/sindresorhus/cli-spinners) - Spinners for use in the terminal
 - [listr](https://github.com/SamVerschueren/listr) - Terminal task list
 
