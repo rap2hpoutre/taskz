@@ -1,4 +1,4 @@
-const taskz = require("./index.js");
+const taskz = require("../index.js");
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -33,9 +33,9 @@ const tasks = taskz([
           const frames = ["foo", "bar", "baz"];
           for (let i in frames) {
             ctx.text(`my subtask 2 ${frames[i]}`);
-            await sleep(500);
+            await sleep(750);
           }
-          ctx.text("my subtask 2");
+          ctx.text("my subtask 2 done");
         }
       }
     ])

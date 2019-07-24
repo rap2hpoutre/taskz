@@ -1,6 +1,6 @@
 # Taskz
 
-Simple sequential terminal tasks runner.
+Simple sequential and parallel task list runner for terminal.
 
 ![render1563366532786](https://user-images.githubusercontent.com/1575946/61376196-03e43800-a8a1-11e9-9ac2-caff8e3c412a.gif)
 
@@ -63,9 +63,22 @@ const myTasks = taskz([
 ]);
 ```
 
+### Concurrent tasks (parallelism)
+
+Add `{ parallel: true }` as a second parameter in `taskz`. 
+
+```js
+const myTasks = taskz([
+  { text: "task 1", task: () => { /* ... */ } },
+  { text: "task 2", task: () => { /* ... */ } }
+], { parallel: true });
+```
+
+You can mix parallel and sequencial tasks within the same scenario via subtasks.
+
 ### Fail
 
-Fail and stop with `stopOnError` option.
+Fail and stop with `stopOnError` option. Does only work for sequencial tasks.
 
 ```js
 const myTasks = taskz([
@@ -86,20 +99,16 @@ const myTasks = taskz([
 const myTasks = taskz([
   { 
     text: "task 1", 
-    task: ctx => { 
-      ctx.val = "foo" 
-    } 
+    task: ctx => { ctx.val = "foo" } 
   },
   { 
     text: "task 2", 
-    task: ctx => { 
-      doSomethingWith(ctx.val) 
-    } 
+    task: ctx => { doSomethingWith(ctx.val) } 
   }
 ]);
 ```
 
-### Change text within a task
+### Change text within a task during execution
 
 ```js
 const myTasks = taskz([
