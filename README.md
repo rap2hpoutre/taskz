@@ -65,7 +65,7 @@ const myTasks = taskz([
 
 ### Concurrent tasks (parallelism)
 
-Add `{ parallel: true }` as a second parameter in `taskz`. 
+Add `{ parallel: true }` as a second parameter in `taskz`. 
 
 ```js
 const myTasks = taskz([
