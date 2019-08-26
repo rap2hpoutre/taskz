@@ -15,6 +15,6 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
-    "spinnies": "^0.4.3"
+    "spinnies": "^0.5.0"
   }
 }

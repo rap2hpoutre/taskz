@@ -44,6 +44,12 @@ const tasks = taskz(
         ],
         { parallel: true }
       )
+    },
+    {
+      text: "another task",
+      task: async () => {
+        await sleep(1500);
+      }
     }
   ],
   { parallel: true }
