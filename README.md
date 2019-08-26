@@ -93,6 +93,8 @@ const myTasks = taskz([
 ]);
 ```
 
+## Advanced Usage
+
 ### Use context
 
 ```js
@@ -127,7 +129,7 @@ const myTasks = taskz([
 
 - [spinnies](https://github.com/jcarpanelli/spinnies) - Elegant terminal multiple spinners manager
 - [cli-spinners](https://github.com/sindresorhus/cli-spinners) - Spinners for use in the terminal
-- [listr](https://github.com/SamVerschueren/listr) - Terminal task list
+- [listr](https://github.com/SamVerschueren/listr) - Terminal task list (unmaintained)
 
 ## License
 
