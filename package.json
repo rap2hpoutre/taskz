@@ -4,7 +4,7 @@
   "description": "Terminal task list",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": "rap2hpoutre/taskz",
   "author": {
@@ -16,5 +16,8 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "spinnies": "^0.5.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }
