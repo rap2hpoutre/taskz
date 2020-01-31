@@ -8,7 +8,7 @@ function taskz(tasks, options = { parallel: false }) {
       level = 0,
       spinnies = new Spinnies({ succeedColor: "green", succeedPrefix: "✔" })
     ) =>
-      (options.parallel ? runParallel : runSequence)(
+       (options.parallel ? runParallel : runSequence)(
         typeof tasks === 'function' ? tasks(ctx) : tasks,
         level,
         ctx,
@@ -49,10 +49,12 @@ async function runSequence(tasks, level, ctx, spinnies) {
 async function runTask({ t, i, level, ctx, spinnies, tasks }) {
   const id = String(i + Math.random());
   const counter = chalk.dim.grey(` [${i + 1}/${tasks.length}]`);
-  spinnies.add(id, { text: `${t.text}${counter}`, indent: level });
-  ctx.text = val => {
+  const setText = val => {
     spinnies.update(id, { text: `${val}${counter}` });
   };
+
+  spinnies.add(id, { text: `${t.text}${counter}`, indent: level });
+
   if (t.tasks) {
     // Subtasks
     spinnies.update(id, {
@@ -63,7 +65,7 @@ async function runTask({ t, i, level, ctx, spinnies, tasks }) {
   } else {
     // Run one task
     try {
-      await t.task(ctx);
+      await t.task(ctx, setText);
       spinnies.succeed(id, { text: chalk.reset(spinnies.pick(id).text) });
     } catch (e) {
       spinnies.fail(id, { text: chalk.reset(`${e.message}${counter}`) });
