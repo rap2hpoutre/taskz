@@ -50,9 +50,11 @@ async function runTask({ t, i, level, ctx, spinnies, tasks }) {
   const id = String(i + Math.random());
   const counter = grey().dim(` [${i + 1}/${tasks.length}]`);
   spinnies.add(id, { text: `${t.text}${counter}`, indent: level });
-  ctx.text = val => {
+
+  const setText = val => {
     spinnies.update(id, { text: `${val}${counter}` });
   };
+
   if (t.tasks) {
     // Subtasks
     spinnies.update(id, {
@@ -63,7 +65,7 @@ async function runTask({ t, i, level, ctx, spinnies, tasks }) {
   } else {
     // Run one task
     try {
-      await t.task(ctx);
+      await t.task(ctx, setText);
       spinnies.succeed(id, { text: reset(spinnies.pick(id).text) });
     } catch (e) {
       spinnies.fail(id, { text: reset(`${e.message}${counter}`) });
