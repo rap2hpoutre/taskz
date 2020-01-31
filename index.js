@@ -9,7 +9,7 @@ function taskz(tasks, options = { parallel: false }) {
       spinnies = new Spinnies({ succeedColor: "green", succeedPrefix: "✔" })
     ) =>
       (options.parallel ? runParallel : runSequence)(
-        tasks,
+        typeof tasks === 'function' ? tasks(ctx) : tasks,
         level,
         ctx,
         spinnies
