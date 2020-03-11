@@ -53,19 +53,19 @@ Replace `task` by `tasks` and call `taskz` function.
 ```js
 const myTasks = taskz([
   { text: "task 1", task: () => { /* ... */ } },
-  { 
-    text: "task 2 with subtasks", 
+  {
+    text: "task 2 with subtasks",
     tasks: taskz([
       { text: "task 2.1", task: () => { /* ... */ } },
       { text: "task 2.2", task: () => { /* ... */ } }
-    ]) 
+    ])
   }
 ]);
 ```
 
 ### Concurrent tasks (parallelism)
 
-Add `{ parallel: true }` as a second parameter in `taskz`. 
+Add `{ parallel: true }` as a second parameter in `taskz`.
 
 ```js
 const myTasks = taskz([
@@ -99,13 +99,13 @@ const myTasks = taskz([
 
 ```js
 const myTasks = taskz([
-  { 
-    text: "task 1", 
-    task: ctx => { ctx.val = "foo" } 
+  {
+    text: "task 1",
+    task: ctx => { ctx.val = "foo" }
   },
-  { 
-    text: "task 2", 
-    task: ctx => { doSomethingWith(ctx.val) } 
+  {
+    text: "task 2",
+    task: ctx => { doSomethingWith(ctx.val) }
   }
 ]);
 ```
@@ -116,10 +116,10 @@ const myTasks = taskz([
 const myTasks = taskz([
   {
     text: "my subtask 2",
-    task: async ctx => {
-      ctx.text("my subtask 2 foo");
+    task: async (ctx, setText) => {
+      setText("my subtask 2 foo");
       await new Promise(resolve => setTimeout(resolve, 200));
-      ctx.text("my subtask 2 bar");
+      setText(kleur.magenta("my subtask 2 bar");
     }
   }
 ]);
