@@ -4,12 +4,12 @@ const Spinnies = require("spinnies");
 function taskz(tasks, options = { parallel: false }) {
   return {
     run: async (
-      level = 0,
       ctx = {},
+      level = 0,
       spinnies = new Spinnies({ succeedColor: "green", succeedPrefix: "✔" })
     ) =>
       (options.parallel ? runParallel : runSequence)(
-        tasks,
+        typeof tasks === 'function' ? tasks(ctx) : tasks,
         level,
         ctx,
         spinnies
@@ -59,7 +59,7 @@ async function runTask({ t, i, level, ctx, spinnies, tasks }) {
       text: `→ ${t.text}${counter}`,
       status: "stopped"
     });
-    await t.tasks.run(level + 1, ctx, spinnies);
+    await t.tasks.run(ctx, level + 1, spinnies);
   } else {
     // Run one task
     try {
