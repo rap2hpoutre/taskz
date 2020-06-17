@@ -1,4 +1,5 @@
 const taskz = require("../index.js");
+const kleur = require('kleur')
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -29,13 +30,15 @@ const tasks = taskz([
       },
       {
         text: "",
-        task: async ctx => {
-          const frames = ["foo", "bar", "baz"];
+        task: async (ctx, setText) => {
+          const frames = ["cyan", "red", "magenta"];
           for (let i in frames) {
-            ctx.text(`my subtask 2 ${frames[i]}`);
+            const colour = frames[i]
+
+            setText(kleur[colour](`my subtask 2 now in ${colour}`));
             await sleep(750);
           }
-          ctx.text("my subtask 2 done");
+          setText("my subtask 2 done");
         }
       }
     ])
